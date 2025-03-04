@@ -504,7 +504,7 @@ JFileChooser fileChooser = new JFileChooser();
         double max_value = rec.getMaxValue();
         double step = rec.getStep()/6;
 
-        // Разделяем интервал на 6 частей
+        
         double interval = (max_value - min_value) / 6;
         List<Thread> threads = new LinkedList<>();
         List<RecIntegral> parts = new LinkedList<>();
@@ -537,14 +537,14 @@ JFileChooser fileChooser = new JFileChooser();
             }
         }
 
-        double totalResult = 0;
+        double Result = 0;
         for (RecIntegral calculator : parts) {
-            totalResult += calculator.getResult();
+            Result += calculator.getResult();
         }
 
-        rec.setResult(totalResult);
+        rec.setResult(Result);
         DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
-        model.setValueAt(totalResult, index, 3);
+        model.setValueAt(Result, index, 3);
     } else {
         JOptionPane.showMessageDialog(this, "Выберите строку для вычисления.");
     }
